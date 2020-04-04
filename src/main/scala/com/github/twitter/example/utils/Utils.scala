@@ -13,7 +13,8 @@ object Utils {
 
 
   def simpleStatusListener = new StatusListener() {
-    def onStatus(status: Status) { println(status.getText) }
+    def onStatus(status: Status) {
+      println(s"Usuário :${status.getUser} \n Tweet: ${status.getText}") }
     def onDeletionNotice(statusDeletionNotice: StatusDeletionNotice) {}
     def onTrackLimitationNotice(numberOfLimitedStatuses: Int) {}
     def onException(ex: Exception) { ex.printStackTrace }
