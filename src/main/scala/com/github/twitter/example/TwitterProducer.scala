@@ -16,7 +16,7 @@ object TwitterProducer extends App {
   //Create a loop to send msgs to kafka
   while(finishingLoop){
     twitterStream.filter(new FilterQuery().locations(Array(-38.54, -3.71, -38.32, -3.43 ).map(_.toDouble).grouped(2).toArray))
-    Thread.sleep(60000)
+    Thread.sleep(120000)
     finishingLoop = false
   }
   twitterStream.cleanUp
