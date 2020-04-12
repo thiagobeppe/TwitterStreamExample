@@ -29,6 +29,11 @@ object KafkaProducer {
   //broker down
   props.put("min.insync.replicas", "2")
 
+  //Adding a parameters to a high throughput
+  props.put("compression.type", "snappy")
+  props.put("linger.ms", "20")
+  props.put("batch.size", "16384")
+
 
   val producer = new KafkaProducer[String,String](props)
   val topic = "TWEETS_TOPIC"
