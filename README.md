@@ -1,4 +1,4 @@
-# Série de exemplos usando Spark 
+# Usando Twitter com Scala e Kafka 
 **Este repositório foi criado para fazer a implementação em Scala do exemplo usado no curso [ Apache Kafka Series - Learn Apache Kafka for Beginners v2](https://www.udemy.com/course/apache-kafka/).**
 
 # Recursos necessários
