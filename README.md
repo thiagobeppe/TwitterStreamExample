@@ -1,6 +1,10 @@
 # Usando Twitter com Scala e Kafka 
 **Este repositório foi criado para fazer a implementação em Scala do exemplo usado no curso [ Apache Kafka Series - Learn Apache Kafka for Beginners v2](https://www.udemy.com/course/apache-kafka/).**
 
+---
+#### To see this ReadMe in english [click here]() :us:
+---
+
 # Recursos necessários
 * Java 11
 * [Kafka](https://kafka.apache.org/downloads) 
