@@ -206,3 +206,5 @@ spark-warehouse/
 application.conf
 
 # End of https://www.gitignore.io/api/sbt,scala,spark,intellij
+
+logs/
