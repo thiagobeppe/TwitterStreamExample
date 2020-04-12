@@ -2,7 +2,7 @@
 **Este repositório foi criado para fazer a implementação em Scala do exemplo usado no curso [ Apache Kafka Series - Learn Apache Kafka for Beginners v2](https://www.udemy.com/course/apache-kafka/).**
 
 ---
-#### To see this ReadMe in english [click here]() :us:
+#### To see this ReadMe in english [click here](https://github.com/thiagobeppe/TwitterStreamExample/blob/master/READMEEN.md) :us:
 ---
 
 # Recursos necessários
