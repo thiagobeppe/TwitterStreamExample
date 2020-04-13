@@ -1,18 +1,17 @@
-package com.github.twitter.example
-
-import java.util.Date
+package com.github.twitter.example.utils
 
 import org.apache.http.HttpHost
 import org.apache.http.auth.{AuthScope, UsernamePasswordCredentials}
 import org.apache.http.client.CredentialsProvider
 import org.apache.http.impl.client.BasicCredentialsProvider
 import org.apache.http.impl.nio.client.HttpAsyncClientBuilder
+import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.elasticsearch.action.index.{IndexRequest, IndexResponse}
 import org.elasticsearch.client.{RequestOptions, RestClient, RestClientBuilder, RestHighLevelClient}
 import org.elasticsearch.common.xcontent.XContentType
 
+class ElasticSearchConfig {
 
-object ElasticSearchConfig extends App{
   private val port = System.getenv("ELASTIC_PORT")
   private val host = System.getenv("ELASTIC_HOST")
   private val scheme = "https"
@@ -24,13 +23,16 @@ object ElasticSearchConfig extends App{
 
   val client = new RestHighLevelClient(
     RestClient.builder(new HttpHost(host, port.toInt, scheme)).setHttpClientConfigCallback(new RestClientBuilder.HttpClientConfigCallback {
-      override def customizeHttpClient(httpClientBuilder: HttpAsyncClientBuilder): HttpAsyncClientBuilder = httpClientBuilder.setDefaultCredentialsProvider(cp)
+        override def customizeHttpClient(httpClientBuilder: HttpAsyncClientBuilder): HttpAsyncClientBuilder = httpClientBuilder.setDefaultCredentialsProvider(cp)
       }
     )
   )
-  val request: IndexRequest = new IndexRequest("twitter")
-  request.id("1")
-  request.source("name","thiago","postDate", new Date(), "Message", "trying out Elasticsearch")
-  val response: IndexResponse = client.index(request, RequestOptions.DEFAULT)
-  println(response.getId)
+
+  def insertIntoElastic(record: String ) = {
+    val request: IndexRequest = new IndexRequest("twitter")
+    request.source(record, XContentType.JSON)
+    val response: IndexResponse = client.index(request, RequestOptions.DEFAULT)
+    println(response.getId)
+  }
+
 }

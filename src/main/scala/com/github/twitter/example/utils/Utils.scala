@@ -1,9 +1,9 @@
 package com.github.twitter.example.utils
 
+import com.github.twitter.example.kafka.KafkaProducer
 import twitter4j.{StallWarning, StatusDeletionNotice, StatusListener}
 import twitter4j.Status
-
-import com.github.twitter.example.KafkaProducer
+import twitter4j.json.DataObjectFactory
 
 object Utils {
   val config = new twitter4j.conf.ConfigurationBuilder()
@@ -11,12 +11,13 @@ object Utils {
     .setOAuthConsumerSecret(System.getenv("TWITTER_CONSUMER_TOKEN_SECRET"))
     .setOAuthAccessToken(System.getenv("TWITTER_ACCESS_TOKEN_KEY"))
     .setOAuthAccessTokenSecret(System.getenv("TWITTER_ACCESS_TOKEN_SECRET"))
+    .setJSONStoreEnabled(true)
     .build
 
 
   def simpleStatusListener = new StatusListener() {
     def onStatus(status: Status): Unit = {
-      KafkaProducer.run(status)
+      KafkaProducer.run(DataObjectFactory.getRawJSON(status))
        }
     def onDeletionNotice(statusDeletionNotice: StatusDeletionNotice) {}
     def onTrackLimitationNotice(numberOfLimitedStatuses: Int) {}
