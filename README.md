@@ -1,4 +1,4 @@
-# Usando Twitter com Scala e Kafka 
+# Usando Twitter com Scala, Kafka e ElasticSearch
 **Este repositório foi criado para fazer a implementação em Scala do exemplo usado no curso [ Apache Kafka Series - Learn Apache Kafka for Beginners v2](https://www.udemy.com/course/apache-kafka/).**
 
 ---
