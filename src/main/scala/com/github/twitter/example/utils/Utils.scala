@@ -1,6 +1,7 @@
 package com.github.twitter.example.utils
 
 import com.github.twitter.example.kafka.KafkaProducer
+import com.google.gson.JsonParser
 import twitter4j.{StallWarning, StatusDeletionNotice, StatusListener}
 import twitter4j.Status
 import twitter4j.json.DataObjectFactory
@@ -24,6 +25,11 @@ object Utils {
     def onException(ex: Exception) { ex.printStackTrace }
     def onScrubGeo(arg0: Long, arg1: Long) {}
     def onStallWarning(warning: StallWarning) {}
+  }
+
+
+  def extractIdFromJson(record: String): String = {
+    JsonParser.parseString(record).getAsJsonObject().get("id").getAsString()
   }
 
 }

@@ -5,11 +5,11 @@ import org.apache.http.auth.{AuthScope, UsernamePasswordCredentials}
 import org.apache.http.client.CredentialsProvider
 import org.apache.http.impl.client.BasicCredentialsProvider
 import org.apache.http.impl.nio.client.HttpAsyncClientBuilder
-import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.elasticsearch.action.index.{IndexRequest, IndexResponse}
 import org.elasticsearch.client.{RequestOptions, RestClient, RestClientBuilder, RestHighLevelClient}
 import org.elasticsearch.common.xcontent.XContentType
 
+import com.github.twitter.example.utils.Utils.extractIdFromJson
 class ElasticSearchConfig {
 
   private val port = System.getenv("ELASTIC_PORT")
@@ -28,9 +28,12 @@ class ElasticSearchConfig {
     )
   )
 
-  def insertIntoElastic(record: String ) = {
+  def insertIntoElastic(record: String) = {
     val request: IndexRequest = new IndexRequest("twitter")
+    val id = extractIdFromJson(record)
+    request.id(id)
     request.source(record, XContentType.JSON)
+    Thread.sleep(1000)
     val response: IndexResponse = client.index(request, RequestOptions.DEFAULT)
     println(response.getId)
   }

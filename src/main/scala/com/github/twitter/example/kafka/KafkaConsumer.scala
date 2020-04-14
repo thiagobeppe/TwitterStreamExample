@@ -26,7 +26,6 @@ object KafkaConsumer extends App {
   while(true){
     val records = consumer.poll(Duration.ofMillis(100))
     records.forEach( record => {
-//      println(record.value())
       elasticUtils.insertIntoElastic(record.value())
     })
   }
