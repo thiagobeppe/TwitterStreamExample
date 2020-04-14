@@ -22,4 +22,8 @@
 
 * Abra o projeto em sua IDE e execute o arquivo *TwitterProducer*
 * Coloque as variáveis de ambiente do ElasticSearch dentro da IDE
-* Rode o KafkaConsumer
+* Rode o KafkaConsumer.
+  
+---
+[1] Caso você execute o ElasticSearch localmente pode remover a parte de BasicAuth.  
+[2] Necessário criar um index "twitter" dentro do elastic, senão dá erro na inserção.
