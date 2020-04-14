@@ -1,4 +1,4 @@
-# A Twitter's application using
+# A Twitter's application using Kafka And ElasticSearch
 **This repository was created to make an implementation of an exercise proposed by the course[ Apache Kafka Series - Learn Apache Kafka for Beginners v2](https://www.udemy.com/course/apache-kafka/).**
 
 # Necessary Resources
