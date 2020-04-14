@@ -10,9 +10,9 @@
 * [Kafka](https://kafka.apache.org/downloads) 
 * [Docker](https://www.docker.com/) e [Docker-Compose](https://docs.docker.com/compose/install/) (Caso você não queria rodar o kafka localmente)
 * [Scala](https://www.scala-lang.org/download/) (2.12.11)
-* [Spark 3](https://spark.apache.org/downloads.html)
 * Uma IDE (Eclipse, Intelij...)
 * Uma conta de desenvolvedor do [Twitter](https://developer.twitter.com/en)
+* Uma conta no [Bonsai ElasticSearch ](https://bonsai.io/) (caso voce não queira colocar local)
 
 
 # Como executar -> Linux
@@ -21,3 +21,5 @@
 * Coloque as chaves de acesso do twitter nas variáveis de ambiente da sua IDE ([Intellij](https://www.jetbrains.com/help/objc/add-environment-variables-and-program-arguments.html), [Eclipse](https://help.eclipse.org/2019-12/index.jsp?topic=%2Forg.eclipse.cdt.doc.user%2Ftasks%2Fcdt_t_run_env.htm)). Caso você não vá subir essa aplicação no github pode-se colocar as variáveis como *String* direto no texto.
 
 * Abra o projeto em sua IDE e execute o arquivo *TwitterProducer*
+* Coloque as variáveis de ambiente do ElasticSearch dentro da IDE
+* Rode o KafkaConsumer
