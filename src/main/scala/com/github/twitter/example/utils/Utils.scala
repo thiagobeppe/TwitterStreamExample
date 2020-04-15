@@ -32,4 +32,13 @@ object Utils {
     JsonParser.parseString(record).getAsJsonObject().get("id").getAsString()
   }
 
+  def extractUserFollowersFromJson(record: String): Int = {
+    try {
+      JsonParser.parseString(record).getAsJsonObject().get("user").getAsJsonObject().get("followers_count").getAsInt()
+    }
+    catch {
+      case e: NullPointerException => 0
+    }
+  }
+
 }

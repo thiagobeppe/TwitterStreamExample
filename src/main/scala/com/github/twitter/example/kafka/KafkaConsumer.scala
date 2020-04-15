@@ -17,11 +17,11 @@ object KafkaConsumer extends App {
   props.put("bootstrap.servers", "localhost:9092")
   props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
   props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
-  props.put("group.id", getClass.getSimpleName)
-  props.put("auto.offset.reset", "earliest")
+  props.put("group.id", String.valueOf(getClass))
+//  props.put("auto.offset.reset", "earliest")
 
   val consumer = new KafkaConsumer[String, String](props)
-  consumer.subscribe(List("TWEETS_TOPIC").asJava)
+  consumer.subscribe(List("IMPORTANT_TWEETS").asJava)
 
   while(true){
     val records = consumer.poll(Duration.ofMillis(100))
