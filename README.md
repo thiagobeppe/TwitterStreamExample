@@ -18,12 +18,12 @@
 # Como executar -> Linux
 * Rode o kafka, caso seja local necessário subir o zookeeper e o kafka-server, caso seja por docker só usar ```docker-compose up -d ```
 
-* Coloque as chaves de acesso do twitter nas variáveis de ambiente da sua IDE ([Intellij](https://www.jetbrains.com/help/objc/add-environment-variables-and-program-arguments.html), [Eclipse](https://help.eclipse.org/2019-12/index.jsp?topic=%2Forg.eclipse.cdt.doc.user%2Ftasks%2Fcdt_t_run_env.htm)). Caso você não vá subir essa aplicação no github pode-se colocar as variáveis como *String* direto no texto.
+* Coloque as chaves de acesso do *Twitter* e do *ElasticSearch*nas variáveis de ambiente da sua IDE ([Intellij](https://www.jetbrains.com/help/objc/add-environment-variables-and-program-arguments.html), [Eclipse](https://help.eclipse.org/2019-12/index.jsp?topic=%2Forg.eclipse.cdt.doc.user%2Ftasks%2Fcdt_t_run_env.htm)). Caso você não vá subir essa aplicação no github pode-se colocar as variáveis como *String* direto no texto.
 
-* Abra o projeto em sua IDE e execute o arquivo *TwitterProducer*
-* Coloque as variáveis de ambiente do ElasticSearch dentro da IDE
-* Rode o KafkaConsumer.
+* Abra o projeto em sua IDE e execute nesta ordem: *TwitterProducer*, *KafkaStream* e *KafkaConsumer*.  
+* Quando o *Consumer* estiver em execução, o console irá mostrar os *"ids"* que foram inseridos no Elastic, vá até o bonsai, console e faça um get pelo ID ```/twitter/tweets/{id}```
+
   
 ---
 [1] Caso você execute o ElasticSearch localmente pode remover a parte de BasicAuth.  
-[2] Necessário criar um index "twitter" dentro do elastic, senão dá erro na inserção.
+[2] Necessário criar um index *"twitter"* e um type *"tweets"* dentro do elastic, senão dá erro na inserção.
